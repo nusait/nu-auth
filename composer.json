@@ -1,0 +1,21 @@
+{
+    "name": "nusait/nu-auth",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hao Luo",
+            "email": "hao@northwestern.edu"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+        "nusait/nuldap": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Nusait\\NuAuth": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
