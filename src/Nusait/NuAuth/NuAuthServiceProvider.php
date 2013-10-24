@@ -12,7 +12,7 @@ class NuAuthServiceProvider extends ServiceProvider {
 	protected $defer = true;
 
 	public function boot() {
-		$this->package('nuauth/nu-auth');
+		$this->package('nusait/nu-auth');
 		$this->app['auth']->extend('nuauth', function($app) {
 			$autoCreate = $app['config']->get('nu-auth::config');
 		    return new NuAuth($app['hash'], $app['config']['auth.model'], $autoCreate);
