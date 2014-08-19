@@ -1,6 +1,7 @@
 {
     "name": "nusait/nu-auth",
     "description": "",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Hao Luo",
