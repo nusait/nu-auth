@@ -6,12 +6,13 @@
  */
 use Illuminate\Hashing\HasherInterface;
 use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\EloquentUserProvider;
+use Illuminate\Auth\UserProviderInterface;
 use Nusait\Nuldap\NuLdap;
-use User;
 use Config;
 
 
-class NuAuth extends \Illuminate\Auth\EloquentUserProvider implements \Illuminate\Auth\UserProviderInterface {
+class NuAuth extends EloquentUserProvider implements UserProviderInterface {
     protected $model;
     protected $hasher;
     protected $netidKey;

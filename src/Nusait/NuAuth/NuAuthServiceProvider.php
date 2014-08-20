@@ -9,7 +9,7 @@ class NuAuthServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = true;
+	protected $defer = false;
 
 	public function boot() {
 		$this->package('nusait/nu-auth');
