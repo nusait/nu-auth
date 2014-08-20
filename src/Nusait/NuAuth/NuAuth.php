@@ -53,9 +53,9 @@ class NuAuth extends EloquentUserProvider implements UserProviderInterface {
             $idValue = $credentials[$idKey];
 
 
-            $firstNameKey = $this->firstNameColumn;
-            $lastNameKey = $this->lastNameColumn;
-            $emailKey = $this->emailColumn;
+            $firstNameKey = $this->firstNameKey;
+            $lastNameKey = $this->lastNameKey;
+            $emailKey = $this->emailKey;
 
             $info = $this->retrieveLdapUserInfo($idValue);
             $user = $this->createModel();
