@@ -1,7 +1,7 @@
 {
     "name": "nusait/nu-auth",
     "description": "",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "authors": [
         {
             "name": "Hao Luo",
@@ -10,8 +10,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/auth": "4.2.x",
-        "illuminate/support": "4.x",
+        "illuminate/auth": "~5.0",
+        "illuminate/support": "~5.0",
         "nusait/nuldap": "1.*"
     },
     "autoload": {
