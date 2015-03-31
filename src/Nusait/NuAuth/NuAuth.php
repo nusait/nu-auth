@@ -4,15 +4,15 @@
  * @author Chris Walker
  * @author  Hao Luo <howlowck@gmail.com>
  */
-use Illuminate\Hashing\HasherInterface;
-use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\EloquentUserProvider;
-use Illuminate\Auth\UserProviderInterface;
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableInterface;
+use Illuminate\Contracts\Hashing\Hasher as HasherInterface;
 use Nusait\Nuldap\NuLdap;
 use Config;
 
 
-class NuAuth extends EloquentUserProvider implements UserProviderInterface {
+class NuAuth extends EloquentUserProvider implements UserProvider {
     protected $model;
     protected $hasher;
     protected $netidKey;
@@ -114,7 +114,7 @@ class NuAuth extends EloquentUserProvider implements UserProviderInterface {
      * @param  array  $credentials
      * @return bool
      */
-    public function validateCredentials(UserInterface $user, array $credentials)
+    public function validateCredentials(AuthenticatableInterface $user, array $credentials)
     {
        $plain = $credentials['password'];
        $authPassword = $user->getAuthPassword();

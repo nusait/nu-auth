@@ -12,10 +12,14 @@ class NuAuthServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	public function boot() {
-		//$this->package('nusait/nu-auth');
+
+		$this->publishes([
+			__DIR__ . '/../../config/config.php' => config_path('nuauth.php'),
+		]);
+
 		$this->app['auth']->extend('nuauth', function($app) {
-			$autoCreate = $app['config']->get('nu-auth::config');
-		    return new NuAuth($app['hash'], $app['config']['auth.model'], $autoCreate);
+			$config = $app['config']->get('nuauth');
+		    return new NuAuth($app['hash'], $app['config']['auth.model'], $config);
 		});
 	}
 	/**
