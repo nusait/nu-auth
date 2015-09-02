@@ -61,7 +61,7 @@ class NuAuth extends EloquentUserProvider implements UserProvider {
             $user = $this->createModel();
             $user->$firstNameKey = $info['first_name'];
             $user->$lastNameKey = $info['last_name'];
-            $user->$idKey = $idValue;
+            $user->$idKey = strtolower($idValue);
             $user->$emailKey = $info['email'];
             $user->save();
             return $user;
