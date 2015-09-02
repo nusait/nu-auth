@@ -68,17 +68,6 @@ class NuAuth extends EloquentUserProvider implements UserProvider {
         }
         return null;
     }
-
-    /**
-     * Retrieve a user by their unique identifier.
-     *
-     * @param  mixed  $identifier
-     * @return \Illuminate\Auth\UserInterface|null
-     */
-    public function retrieveById($identifier)
-    {
-        return $this->createModel()->newQuery()->find($identifier);
-    }
     /**
      * Validate Ldap User with given Credientials with netid and password
      * @param  array $credentials
@@ -123,16 +112,5 @@ class NuAuth extends EloquentUserProvider implements UserProvider {
        if ( ! empty($authPassword)) return $this->hasher->check($plain, $authPassword);
        $result = $this->validateLdapCredentials($credentials);
        return $result;
-    }
-    /**
-     * Create a new instance of the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Model
-     */
-    public function createModel()
-    {
-        $class = '\\'.ltrim($this->model, '\\');
-
-        return new $class;
     }
 }
