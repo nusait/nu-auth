@@ -75,7 +75,7 @@ class NuAuth extends EloquentUserProvider implements UserProvider {
      */
     protected function validateLdapCredentials(array $credentials)
     {
-        $ldap = new NuLdap();
+        $ldap = new NuLdap(Config::get('ldap.rdn'), Config::get('ldap.password'), Config::get('ldap.host'), Config::get('ldap.port'));
         $netid = $credentials[$this->netidKey];
         $password = $credentials['password'];
         return $ldap->validate($netid, $password);
