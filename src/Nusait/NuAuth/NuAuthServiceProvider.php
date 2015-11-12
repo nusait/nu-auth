@@ -15,6 +15,7 @@ class NuAuthServiceProvider extends ServiceProvider {
 
 		$this->publishes([
 			__DIR__ . '/../../config/config.php' => config_path('nuauth.php'),
+			__DIR__ . '/../../config/ldap.php' => config_path('ldap.php'),
 		]);
 
 		$this->app['auth']->extend('nuauth', function($app) {

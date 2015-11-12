@@ -87,7 +87,7 @@ class NuAuth extends EloquentUserProvider implements UserProvider {
      */
     private function retrieveLdapUserInfo($netid)
     {
-        $ldap = new NuLdap(Config::get('ldap.rdn'), Config::get('ldap.password'));
+        $ldap = new NuLdap(Config::get('ldap.rdn'), Config::get('ldap.password'), Config::get('ldap.host'), Config::get('ldap.port'));
         $metadata = $ldap->searchNetid($netid);
 
         $result['first_name'] = $metadata['givenname'][0];
