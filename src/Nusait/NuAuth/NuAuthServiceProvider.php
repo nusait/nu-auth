@@ -20,7 +20,8 @@ class NuAuthServiceProvider extends ServiceProvider {
 
 		$this->app['auth']->extend('nuauth', function($app) {
 			$config = $app['config']->get('nuauth');
-		    return new NuAuth($app['hash'], $app['config']['auth.model'], $config);
+			$ldapConfig = $app['config']->get('ldap');
+		    return new NuAuth($app['hash'], $app['config']['auth.model'], $config, $ldapConfig);
 		});
 	}
 	/**
